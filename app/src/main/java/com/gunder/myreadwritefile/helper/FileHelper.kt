@@ -9,7 +9,14 @@ internal object FileHelper {
             it.write(fileModel.data?.toByteArray())
         }
     }
-    fun readFromFile(context: Context, FileName: String): FileModel{
+    fun readFromFile(context: Context, fileName: String): FileModel{
         val fileModel = FileModel()
+        fileModel.fileName = fileName
+        fileModel.data = context.openFileInput(fileName).bufferedReader().useLines { lines ->
+            lines.fold(""){some, text ->
+                "$some\n$text"
+            }
+        }
+        return fileModel
     }
 }
