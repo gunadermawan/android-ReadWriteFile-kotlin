@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun ShowList() {
+//        file list digunakan untuk  memperoleh semua nama berkas yang ada pada App Storage aplikasi.
         val items = fileList()
         val builder = AlertDialog.Builder(this)
         builder.setTitle("pilih file")
